@@ -71,6 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'insta.wsgi.application'
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
