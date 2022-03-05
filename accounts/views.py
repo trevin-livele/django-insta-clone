@@ -170,3 +170,7 @@ def resetpassword(request):
             return redirect('resetpassword')
     else:
         return render(request, 'accounts/resetpassword.html')
+
+
+
+
