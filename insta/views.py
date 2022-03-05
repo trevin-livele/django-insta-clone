@@ -4,4 +4,4 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url= 'login')
 def home(request):
-    return render(request, 'accounts/dashboard.html')
+    return render(request, 'home.html')
