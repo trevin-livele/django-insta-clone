@@ -21,6 +21,11 @@ class Comment(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
 
 
+    class Meta:
+        verbose_name = 'comment'
+        verbose_name_plural = 'comments'
+
+
     def __str__(self):
         return self.message_body
 

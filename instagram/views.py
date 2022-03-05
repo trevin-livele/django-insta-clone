@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import Post
 
-@login_required(login_url= 'login')
-def home(request):
-    post = Post.objects.all()
-    context = {
-        'post' :  post,
-    }
-    return render(request, 'home.html', context)
 
-
+def createpost(request):
+    if request.method == 'POST':
+        image = request.FILES.get('image')
+        description = request.POST.get('description')
+        post = Post.objects.create(user=request.user,image=image,description=description)
+        post.save()
+        return redirect('dash')
+    return render(request, 'create_post.html')
