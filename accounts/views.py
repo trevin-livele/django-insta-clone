@@ -202,3 +202,14 @@ def edit_profile(request):
         'userprofile': userprofile,
     }
     return render(request, 'accounts/edit_profile.html', context)
+
+
+
+
+
+
+
+
+
+def changepassword(request):
+    return render(request, 'accounts/change_password.html')
