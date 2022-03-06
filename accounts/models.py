@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
@@ -83,5 +84,17 @@ class Account(AbstractBaseUser):
 
 
 
+class Userprofile(models.Model):
+    user = models.OneToOneField(Account, on_delete=models.CASCADE)
+    profile_picture = models.ImageField(blank=True, upload_to='userprofile/')
+    bio = models.CharField(max_length=100)
 
     
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+    
+    def __str__(self):
+        return self.user.first_name
