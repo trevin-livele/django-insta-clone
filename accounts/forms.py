@@ -1,5 +1,5 @@
 from django import forms
-from .models import Account
+from .models import Account,Userprofile
 
 
 class RegistrationForm (forms.ModelForm):
@@ -36,4 +36,30 @@ class RegistrationForm (forms.ModelForm):
             raise forms.ValidationError(
                 "passwords does not match!"
             )
+
+
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ('first_name','last_name','phone_number')
+
+
+    def __init__(self, *args, **kwargs):
+        super(UserForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
+class UserprofileForm(forms.ModelForm):
+    profile_picture = forms.ImageField(required=False, error_messages = {'invalid':("Image files only")}, widget=forms.FileInput)
+    class Meta:
+        model = Userprofile
+        fields = ('city','state','country','bio','profile_picture')
+
+    def __init__(self, *args, **kwargs):
+        super(UserprofileForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
 

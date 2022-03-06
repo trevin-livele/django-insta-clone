@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from sre_parse import State
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
@@ -88,6 +89,10 @@ class Userprofile(models.Model):
     user = models.OneToOneField(Account, on_delete=models.CASCADE)
     profile_picture = models.ImageField(blank=True, upload_to='userprofile/')
     bio = models.CharField(max_length=100)
+    city = models.CharField(blank=True,max_length=20)
+    state = models.CharField(blank=True,max_length=20)
+    country = models.CharField(blank=True,max_length=20)
+
 
     
     def save_profile(self):
