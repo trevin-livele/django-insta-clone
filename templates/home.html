@@ -19,6 +19,20 @@
     <p class="card-text">{{post.description}}</p>
   </div>
 </div>
+
+<form action="{% url 'comment' post.id %}" method="POST">
+  {% csrf_token %}
+  <input type="text" class="form-control" name="comment">
+  <button class="btn btn-primary">comment</button>
+</form>
+
+{% for comment in post.comments.all %}
+{{comment.user.username}} :
+{{comment.message_body}}
+
+{% endfor %}
+
+
 {% endfor %}
 </div>
 
