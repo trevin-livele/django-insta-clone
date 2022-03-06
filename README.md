@@ -62,7 +62,7 @@ python3.8 manage.py runserver
 Open terminal on `localhost:8000`
 
 ## Known bugs
-Like and Follow functionality do not work
+Like and Follow functionality do not work as of yet
 
 ## Technologies used
     - Python 3.8.10
