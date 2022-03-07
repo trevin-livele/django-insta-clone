@@ -48,8 +48,10 @@
 <style>
   .fool {
     margin-left: 60%;
-    margin-top: -167%;
-    height: auto;
+    margin-top: -170%;
+    position: sticky;
+    bottom: 2rem;
+    align-self: flex-end;
   }
 </style>
 
@@ -72,15 +74,15 @@
           <a href='#'>
             <img id="prof"
               style="border-radius: 50% ; padding: 0.15rem;  width: 50px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);"
-              class=" img-circle" width="50" height="50" src="https://www.w3schools.com/howto/img_avatar.png">
+              class=" img-circle" width="50" height="50" src="{{userprofile.profile_picture.url}}">
             <small></small>
             <br>
 
         </div>
       </div>
-      @trevin
+      <a href="{% url 'profile' %}">@{{user.username}}</a>
       <div class="col-md-4" style="margin-left: 60%; margin-top: -8%;">
-        <a href="#">
+        <a href="">
           <button class="btn btn-primary">Follow</button>
         </a>
         <br>
