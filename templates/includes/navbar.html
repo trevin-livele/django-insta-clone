@@ -1,27 +1,33 @@
-
 <nav class="navbar">
     <section class="logo-section">
-        <img class="logoname" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png" />
+        <img class="logoname"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png" />
     </section>
     <form class="search-section" form action="#">
         <input class="input-search" type="search" name="user" placeholder="search" />
     </form>
     <section class="icons-section">
-     <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
-     <a href="{% url 'createpost' %}"><i class="fa-solid fa-square-plus"></i></a>
-     <a href="#"><i class="fa-solid fa-compass"></i></a>
-     <a href="#"><i class="fa-solid fa-heart"></i></a>
-     <a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i></a>
+        <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+        <a href="{% url 'createpost' %}"><i class="fa-solid fa-square-plus"></i></a>
+        <a href="#"><i class="fa-solid fa-compass"></i></a>
+        <a href="#"><i class="fa-solid fa-heart"></i></a>
+        <a href="{% url 'profile' %}">profile</a>
+        <a href="{% url 'profile' %}" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user"></i> </a>
+
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-solid fa-user"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'edit_profile' %}"><i class="fa-solid fa-gear"></i>Edit profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bookmark"></i>Saved</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item" href="{% url 'logout'%}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+            </li>
+        </ul>
     </section>
 </nav>
 
 <br>
 <br>
-
-
-
-
-
-   
-
-    

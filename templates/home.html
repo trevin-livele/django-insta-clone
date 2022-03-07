@@ -8,39 +8,103 @@
 
 <div class="container">
 
-<div class="row">
+  <div class="row">
 
 
-<div class="col-sm-6">
-    {% for post in posts %}
-<div class="card mx-auto mt-3">
-  <img src="{{post.image.url}}" class="card-img-top" alt="ig post">
-  <div class="card-body">
-    <p class="card-text">{{post.description}}</p>
+    <div class="col-sm-6">
+      {% for post in posts %}
+      <div class="card mx-auto mt-3">
+        <img src="{{post.image.url}}" class="card-img-top" alt="ig post">
+        <div class="card-body">
+          <p class="card-text">{{post.description}}</p>
+        </div>
+      </div>
+
+      <form action="{% url 'comment' post.id %}" method="POST">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="comment">
+        <button class=" btn-primary btn-sm">comment</button>
+      </form>
+
+      {% for comment in post.comments.all %}
+      {{comment.user.username}} :
+      {{comment.message_body}}
+
+      {% endfor %}
+
+
+      {% endfor %}
+    </div>
+
+    <div class="col-sm-6">
+
+    </div>
   </div>
 </div>
 
-<form action="{% url 'comment' post.id %}" method="POST">
-  {% csrf_token %}
-  <input type="text" class="form-control" name="comment">
-  <button class="btn btn-primary">comment</button>
-</form>
-
-{% for comment in post.comments.all %}
-{{comment.user.username}} :
-{{comment.message_body}}
-
-{% endfor %}
 
 
-{% endfor %}
+
+<style>
+  .fool {
+    margin-left: 60%;
+    margin-top: -167%;
+    height: auto;
+  }
+</style>
+
+
+
+
+<div class='col-md-4 col-xs-4 col-sm-4 fool'>
+  <br><br><br>
+  <div class="ex3" style=" background-color: whitesmoke;
+  color: white;
+  padding: 15px;
+  width: 120%;
+  height: 400px;
+  overflow: scroll;
+  border: 1px solid #ccc">
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="col-md-8">
+          <a href='#'>
+            <img id="prof"
+              style="border-radius: 50% ; padding: 0.15rem;  width: 50px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);"
+              class=" img-circle" width="50" height="50" src="https://www.w3schools.com/howto/img_avatar.png">
+            <small></small>
+            <br>
+
+        </div>
+      </div>
+      @trevin
+      <div class="col-md-4" style="margin-left: 60%; margin-top: -8%;">
+        <a href="#">
+          <button class="btn btn-primary">Follow</button>
+        </a>
+        <br>
+
+      </div>
+
+
+    </div>
+  </div>
 </div>
 
-<div class="col-sm-6">
 
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,5 +112,3 @@
 
 
 {% endblock %}
-
-

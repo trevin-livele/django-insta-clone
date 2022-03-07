@@ -238,7 +238,7 @@ def changepassword(request):
     return render(request, 'accounts/change_password.html')
 
 
-
+@login_required(login_url='login')
 def profile(request):
     userprofile = Userprofile.objects.get(user_id=request.user.id)
     post = Post.objects.all()

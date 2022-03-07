@@ -17,13 +17,13 @@
                 <div class="user-details row pb-2">
                     <div class="col-3 col-md-2">
                         <img src="{{userprofile.profile_picture.url}}" alt="profile pic"
-                            class="rounded-circle">
+                            class="rounded-circle" height="150px" width="200px">
                     </div>
                  <div class="follow">
                     <div class=" pt-2 col-sm col-9 me-3">
                         <h5 class="fw-bold text-capitalize mb-0 text-md-start">username: {{user.username}}</h5>
                         <h5 class="fw-bold text-capitalize mb-0 text-md-start">Bio: </h5>
-
+                        <a href="{% url 'edit_profile' %}"><i class="fa-duotone fa-pen-to-square"></i>Edit</a>
                         <div class="d-flex pt-2">
                             <div class="me-3">
                                 <span class="fw-bold">79</span> posts
@@ -38,7 +38,7 @@
                     </div>
                  </div>
                     <div class=" text-end col-12 col-sm mt-3 mt-sm-0">
-                        <button class="btn btn-primary text-white px-3 btn-sm">Follow</button>
+                        <button class="btn-sm btn-primary text-white px-3 btn-sm">Follow</button>
                     </div>
                 </div>
                 <div class="pt-4">
