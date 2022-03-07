@@ -16,11 +16,14 @@
             <div class="container-xl pt-4 pt-xl-5">
                 <div class="user-details row pb-2">
                     <div class="col-3 col-md-2">
-                        <img src="https://avatars.githubusercontent.com/u/26818458?v=4" alt=""
-                            class="img-60 rounded-circle">
+                        <img src="{{userprofile.profile_picture.url}}" alt="profile pic"
+                            class="rounded-circle">
                     </div>
-                    <div class="h-100 pt-2 col-sm col-9">
-                        <h5 class="fw-bold text-capitalize mb-0 text-md-start">John Doe</h5>
+                 <div class="follow">
+                    <div class=" pt-2 col-sm col-9 me-3">
+                        <h5 class="fw-bold text-capitalize mb-0 text-md-start">username: {{user.username}}</h5>
+                        <h5 class="fw-bold text-capitalize mb-0 text-md-start">Bio: </h5>
+
                         <div class="d-flex pt-2">
                             <div class="me-3">
                                 <span class="fw-bold">79</span> posts
@@ -33,6 +36,7 @@
                             </div>
                         </div>
                     </div>
+                 </div>
                     <div class=" text-end col-12 col-sm mt-3 mt-sm-0">
                         <button class="btn btn-primary text-white px-3 btn-sm">Follow</button>
                     </div>
@@ -43,11 +47,14 @@
                             <h3 class="fw-bold">Posts</h3>
                             <hr class="mt-0">
                         </div>
+                        {% for post in posts %}
                         <div class="col-sm-6 col-lg-4 col-xl-4 mb-3">
                             <div class="post-card">
-                                <img src="https://images.unsplash.com/photo-1555353540-64580b51c258?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1356&q=80" alt="" class="post-image img-fluid">
+                                <img src="{{post.image.url}}" alt="" class="post-image img-fluid">
                             </div>
                         </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>

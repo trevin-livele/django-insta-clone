@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render,get_object_or_404
 from accounts.models import Account
+from instagram .models import Post
 from .forms import RegistrationForm,UserForm,UserprofileForm
 from.models import Account,Userprofile
 from django.contrib import messages,auth
@@ -235,3 +236,18 @@ def changepassword(request):
             messages.error(request, 'Password does not match!')
             return redirect('changepassword')
     return render(request, 'accounts/change_password.html')
+
+
+
+def profile(request):
+    userprofile = Userprofile.objects.get(user_id=request.user.id)
+    post = Post.objects.all()
+
+    context = {
+        'userprofile' : userprofile,
+        'posts' :  post,
+
+    }
+    return render(request, 'accounts/profile.html',context)
+
+

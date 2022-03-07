@@ -24,6 +24,3 @@ def comment(request,pk):
         return redirect('home')
     return render(request, 'home.html')
 
-
-def profile(request):
-    return render(request, 'profile.html')
