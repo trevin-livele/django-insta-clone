@@ -6,9 +6,13 @@ from accounts .models import Userprofile
 def home(request):
     userprofile = Userprofile.objects.get(user_id=request.user.id)
     post = Post.objects.all()
+   
     context = {
         'posts' :  post,
         'userprofile' : userprofile,
     }
     return render(request, 'home.html',context)
+
+
+
 

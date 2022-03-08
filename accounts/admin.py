@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Account,Userprofile
+from .models import Account,Userprofile,FollowersCount
 from django.utils.html import format_html
 
 
@@ -28,3 +28,4 @@ class UserprofileAdmin(admin.ModelAdmin):
 
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Userprofile, UserprofileAdmin)
+admin.site.register(FollowersCount)

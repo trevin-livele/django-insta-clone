@@ -7,6 +7,5 @@ urlpatterns = [
     path('<int:pk>/', views.comment, name='comment'),
 
 
-
  
 ]
