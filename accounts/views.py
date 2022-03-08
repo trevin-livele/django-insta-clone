@@ -238,6 +238,11 @@ def changepassword(request):
     return render(request, 'accounts/change_password.html')
 
 
+
+
+
+
+
 @login_required(login_url='login')
 def profile(request):
     current_user = request.user.username
@@ -255,10 +260,12 @@ def profile(request):
     else:
         follow_button_value = 'follow'
     # userprofile = Userprofile.objects.get(user_id=request.user.id)
+    userprofile = Userprofile.objects.get(user_id=request.user.id)
     post = Post.objects.all()
     context = {
         # 'userprofile' : userprofile,
         'posts' :  post,
+        'userprofile' : userprofile,
         'current_user' : current_user,
         'user_followers' : user_followers,
         'user_following' : user_following,

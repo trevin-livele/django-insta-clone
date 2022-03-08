@@ -22,12 +22,12 @@
                  <div class="follow">
                     <div class=" pt-2 col-sm col-9 me-3">
                         <h5 class="fw-bold text-capitalize mb-0 text-md-start">username: {{user.username}}</h5>
-                        <h5 class="fw-bold text-capitalize mb-0 text-md-start">Bio: </h5>
+                        <h5 class="fw-bold text-capitalize mb-0 text-md-start">Bio:{{user.bio}} </h5>
                         <a href="{% url 'edit_profile' %}"><i class="fa-duotone fa-pen-to-square"></i>Edit</a>
                         <div class="d-flex pt-2">
-                            <div class="me-3">
-                                <span class="fw-bold">9</span> posts
-                            </div>
+                            <!-- <div class="me-3">
+                                <span class="fw-bold"></span> posts
+                            </div> -->
                             <div class="me-3">
                                 <span class="fw-bold">{{user_following}}</span> following
                             </div>
