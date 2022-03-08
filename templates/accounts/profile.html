@@ -38,6 +38,10 @@
                     </div>
                  </div>
                     <div class=" text-end col-12 col-sm mt-3 mt-sm-0">
+                        
+                        
+                        
+                        
                         <form action="{% url 'followers_count' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="user" value="{{current_user}}" readonly />

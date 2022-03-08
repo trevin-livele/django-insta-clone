@@ -240,7 +240,7 @@ def changepassword(request):
 
 @login_required(login_url='login')
 def profile(request):
-    current_user = request.GET.get('user')
+    current_user = request.user.username
     logged_in_user = request.user.username
     user_followers = len(FollowersCount.objects.filter(user=current_user))
     user_following = len(FollowersCount.objects.filter(follower=current_user))
@@ -254,10 +254,10 @@ def profile(request):
         follow_button_value = 'unfollow'
     else:
         follow_button_value = 'follow'
-    userprofile = Userprofile.objects.get(user_id=request.user.id)
+    # userprofile = Userprofile.objects.get(user_id=request.user.id)
     post = Post.objects.all()
     context = {
-        'userprofile' : userprofile,
+        # 'userprofile' : userprofile,
         'posts' :  post,
         'current_user' : current_user,
         'user_followers' : user_followers,

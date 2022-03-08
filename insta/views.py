@@ -4,12 +4,12 @@ from instagram .models import Post
 from accounts .models import Userprofile
 @login_required(login_url= 'login')
 def home(request):
-    userprofile = Userprofile.objects.get(user_id=request.user.id)
+    # userprofile = Userprofile.objects.get(id=request.user.id)
     post = Post.objects.all()
    
     context = {
         'posts' :  post,
-        'userprofile' : userprofile,
+        # 'userprofile' : userprofile,
     }
     return render(request, 'home.html',context)
 
