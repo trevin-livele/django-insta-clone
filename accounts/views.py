@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import redirect, render,get_object_or_404
 from accounts.models import Account
 from instagram .models import Post
@@ -5,7 +6,7 @@ from .forms import RegistrationForm,UserForm,UserprofileForm
 from.models import Account, FollowersCount,Userprofile
 from django.contrib import messages,auth
 from django.contrib.auth.decorators import login_required
-
+# from django.contrib.auth import login,logout,authenticate
 
 #email verification
 from django.contrib.sites.shortcuts import get_current_site
@@ -30,7 +31,10 @@ def register(request):
             user = Account.objects.create_user(first_name=first_name,last_name=last_name,
                                                 email=email,username=username,password=password)
             user.phone_number = phone_number
+            user.is_active = True
             user.save()
+            auth.login(request, user)
+
 
 
             # Create a user profile
@@ -51,8 +55,8 @@ def register(request):
             })
             to_email = email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
-            send_email.send()
-            return redirect('/accounts/login/?command=verification&email='+email)
+            # send_email.send()
+            return redirect('home')
     else:
         form = RegistrationForm()
     context = {
@@ -61,7 +65,7 @@ def register(request):
     return render(request, 'accounts/register.html' ,context)
 
 
-def login(request):
+def login_user(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
